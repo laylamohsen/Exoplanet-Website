@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DID YOU FIND AN EXOPLANET?</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .top-bar {
+            background-color: rgba(0, 0, 0, 0.534);
+            padding: 10px 0;
+            text-align: center;
+            color: white;
+            position: absolute;
+            width: 100%;
+            height:200%;
+            z-index: 0;
+            top: 0;
+        }
+
+        .container {
+            position: relative;
+            display: flex;
+            height: 150vh;
+            overflow: hidden;
+            /* background-image: url('https://bigthink.com/wp-content/uploads/2021/11/Supagif.gif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center; */
+            /* background-blend-mode: darken; */
+        }
+
+        .border-overlay {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            z-index: -1;
+            background-color: black;
+            /* background-image: url('https://i.makeagif.com/media/8-11-2018/jET9FZ.gif');            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center; */
+            
+
+        }
+
+        form, h1, b {
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            letter-spacing: 5px; /* Increase letter spacing */
+        }
+
+        .input-group input[type="text"] {
+            color: rgb(255, 255, 255);
+            border: none;
+            padding: 8px;
+            margin: 0;
+            border-radius: 50%;
+            /* width: 90px;
+            height: 90px; */
+            position: absolute;
+            transform-origin: center bottom; /* Set the rotation origin */
+            
+            /* Adjust transparency as needed */
+        }
+
+        input[name="Not_Transit-like_False_Positive_Flag"], 
+        input[name="Orbit_Period"], 
+        input[name="Transit_Epoch"], 
+        input[name="Transit_Duration"], 
+        input[name="Transit_Depth"],
+        input[name="Planetary_Radius"], 
+        input[name="Insolation_Flux"], 
+        input[name="Transit_Signal-to-Noise"], 
+        input[name="Stellar_Surface_Gravity"], 
+        input[name="Stellar_Radius"] {
+            letter-spacing: 2px; /* Increase letter spacing for input placeholders */
+        }
+
+        input[name="Not_Transit-like_False_Positive_Flag"] {
+            background-color: rgba(255, 255, 255, 0.93); 
+            /* Dusty brown (Mercury-like) */
+            background-image: url("https://cdn.mos.cms.futurecdn.net/oB6gwMbLBDyS35SVrUnTRb.gif"); /* Your circular image URL */
+            background-size:600px;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* background-blend-mode:multiply; */
+            
+            width: 200px;
+            height: 200px;
+            
+            bottom: 150px;
+            right: 35%;
+        }
+  
+        input[name="Orbit_Period"] {
+            background-color: rgba(38, 37, 37, 0.58); /* Dusty gray (Venus-like) */
+            background-image: url("https://img.pikbest.com/origin/08/99/00/59mpIkbEsTrAw.png!sw800"); /* Your circular image URL */
+            background-size:100px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-blend-mode: darken;
+            width: 70px;
+            height: 70px;
+            bottom: 180px;
+            left: 70%;
+        }
+
+        input[name="Transit_Epoch"] {
+            background-color: rgba(100, 134, 146, 0); /* Dusty blue (Earth-like) */
+            background-image: url("static/planet3.webp"); /* Your circular image URL */
+            background-size:150px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-blend-mode: darken;
+            width: 60px;
+            height: 60px;
+            
+            bottom: 160px;
+            right: 110%;
+        }
+
+        input[name="Transit_Duration"] {
+            background-color: rgba(179, 105, 76, 0); /* Dusty red (Mars-like) */
+            background-image: url("static/planet4.png"); /* Your circular image URL */
+            background-size:100px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-blend-mode: darken;
+            width: 30px;
+            height: 30px;
+            bottom: 140px;
+            left: 130%;
+        }
+
+        input[name="Transit_Depth"] {
+            background-color: rgba(14, 18, 17, 0.359); /* Dusty green */
+            background-image: url("static/planet5.png"); /* Your circular image URL */
+            background-size:100px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-blend-mode: darken;
+            width: 80px;
+            height: 80px;
+            bottom: 90px;
+            right: 130%;
+        
+        }
+
+        input[name="Planetary_Radius"] {
+            background-color: rgba(59, 81, 62, 0); /* Dusty purple */
+            background-image: url("static/planet6.png"); /* Your circular image URL */
+            background-size:100px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-blend-mode: darken;
+            width: 50px;
+            height: 50px;
+            bottom: 60px;
+            left: 170%;
+        }
+
+        input[name="Insolation_Flux"] {
+            background-color: rgba(73, 55, 79, 0.271); /* Dusty pink */
+            background-image: url("static/planet7.png"); /* Your circular image URL */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-blend-mode: darken;
+            width: 120px;
+            height: 120px;
+            bottom: -50px;
+            right: 170%;
+        }
+
+        input[name="Transit_Signal-to-Noise"] {
+            background-color: rgba(22, 17, 17, 0.142); /* Dusty red */
+            background-image: url("static/planet8.png"); /* Your circular image URL */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-blend-mode: darken;
+            width: 100px;
+            height: 100px;
+            bottom: -50px;
+            left: 170%;
+        }
+
+        input[name="Stellar_Surface_Gravity"] {
+            background-color: rgba(18, 22, 18, 0.175); /* Dusty green */
+            background-image: url("static/planet1.png"); /* Your circular image URL */
+            background-size: 130px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-blend-mode: darken;
+            width: 90px;
+            height: 90px;
+            bottom: -140px;
+            right: 190%;
+        }
+
+        input[name="Stellar_Radius"] {
+            background-color: rgba(0, 0, 0, 0.469);
+             /* Dusty blue */
+            background-image: url("static/planet10.png"); /* Your circular image URL */
+            background-size: 100px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-blend-mode: darken;
+            width: 40px;
+            height: 40px;
+            bottom: -100px;
+            left: 190%;
+        }
+
+        .input-group input[type="submit"] {
+            color: white;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            position: absolute;
+            bottom: -40px;
+            z-index: 2;
+            left: calc(50% - 50px); /* Center the submit button */
+        }
+
+        .form-container {
+            background-color: rgba(7, 6, 7, 0.74);
+            background-image: url("https://i.makeagif.com/media/8-11-2018/jET9FZ.gif");
+            /* background-repeat: no-repeat; */
+            background-size: contain;
+            background-position: top left;
+            /* background-blend-mode: darken; */
+          
+            z-index: 0;
+            padding: 20px;
+            border-radius: 50%;
+            width: 900px;
+            height: 900px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 51%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .bottom-image {
+            position: absolute;
+            bottom: -550px;
+            left: 50%;
+            transform: translateX(-50%);
+             z-index: 1;
+            width: 500px; /* Adjust width as needed */
+            height: auto; /* Maintain aspect ratio */
+            
+        }
+
+        /* Style for labels */
+        .input-label {
+            color: white;
+            position: absolute;
+            font-size: 10px; /* Same as header */
+            text-align: center;
+          
+            transform: translateX(-50%);
+            /* Position above the circles */
+        }
+    </style>
+</head>
+
+<body style="background-color: black;">
+    <div class="container">
+        <div class="top-bar">
+            <h1 style="top: 60px;"> DID YOU FIND AN EXOPLANET?</h1>
+           
+        </div>
+        <div class="border-overlay"></div>
+        
+        <div class="form-container">
+            <center>
+                <h1 style="bottom: 48vh; font-size: medium;"> ENTER READINGS </h1>
+                <form method="POST" action="{{url_for('home')}}">
+                    <div class="input-group">
+                        <input type="text" name="Not_Transit-like_False_Positive_Flag" placeholder="1">
+                        <span class="input-label" style="bottom: 160px;
+                        right: 50%;"> FP Flag</span>
+                        <input type="text" name="Orbit_Period" placeholder="2">
+                        <span class="input-label" style="bottom: 160px;
+                        left: 70%;">Orbit Period</span>
+                        <input type="text" name="Transit_Epoch" placeholder="3">
+                        <span class="input-label" style="bottom: 120px;
+                        right: 90%;">Transit Epoch</span>
+                        <input type="text" name="Transit_Duration" placeholder="4">
+                        <span class="input-label" style="bottom: 120px;
+                        left: 105%;">Transit Duration</span>
+                        <input type="text" name="Transit_Depth" placeholder="5">
+                        <span class="input-label" style="bottom: 60px;
+                        right: 127%;"> Transit Depth</span>
+                        <input type="text" name="Planetary_Radius" placeholder="6">
+                        <span class="input-label" style="bottom: 60px;
+                        left: 145%;">Planet Radius</span>
+                        <input type="text" name="Insolation_Flux" placeholder="7">
+                        <span class="input-label" style="bottom: -15px;
+                        right: 135%;">Insolution Flux</span>
+                        <input type="text" name="Transit_Signal-to-Noise" placeholder="8">
+                        <span class="input-label" style="bottom: -35px;
+                        left: 157%;">Transit Signal to Noise</span>
+                        <input type="text" name="Stellar_Surface_Gravity" placeholder="9">
+                        <span class="input-label" style="bottom: -120px;
+                        right: 160%;">Host Star Gravity</span>
+                        <input type="text" name="Stellar_Radius" placeholder="10">
+                        <span class="input-label" style="bottom: -120px;
+                        left: 180%;">Host Star Radius</span>
+                        <img class="bottom-image" src="static/astro.png" alt="Bottom Image">
+                        <input type="submit" style="background-color: rgba(15, 15, 15, 0.605); top:-50px; font-size: large; height: 250px; width: 110px;" value="Predict!">
+                    </div>
+                </form>
+            </center>
+        </div>
+        
+    </div>
+</body>
+</html>
